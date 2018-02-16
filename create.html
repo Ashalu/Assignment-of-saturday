@@ -43,13 +43,13 @@ $(document).ready(function(){
 			    data: {
 				name: name,
 				job: job
-                                 
+                              
 			      },
 			    success: function(response){
-				console.log(response);
- var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + response.id + "</td><td>" + response.name + "</td><td>" + response.job + "</td></tr>";
-name=""
-job=""
+		            console.log(response);
+                            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + response.id + "</td><td>" + response.name + "</td><td>" + response.job + "</td></tr>";
+					name=""
+					job=""
 				    $("table tbody").append(markup);
 			    }
 		});
@@ -68,70 +68,59 @@ job=""
             
 
                 $("table tbody").find('input[name="record"]').each(function(){
-            	if($(this).is(":checked")){
-                  var id = $(this).parents("tr")                }
+		    	if($(this).is(":checked")){
+		          var id = $(this).parents("tr")}
 
-            $.ajax({
-		    url: "https://reqres.in/api/users",
-		     type: "POST",
-                     data: "id=" +id,
-                    success: function(response){
-			console.log(response);
-                    $(id).remove();
-			}
-
-
-
-            });
-	             
-	      
-
-               });
-         });
+			    $.ajax({
+				    url: "https://reqres.in/api/users",
+				     type: "POST",
+				     data: "id=" +id,
+				    success: function(response){
+					console.log(response);
+				    $(id).remove();
+					}
+				 });
+	                });
+                });
 
             
        
 
 
-                
+        /*        
          // edit the selected text
         $(".edit-row").click(function(){
             $("table tbody").find('input[name="record"]').each(function(){
             	if($(this).is(":checked")){
-                   var id = $(this).parents("tr")}
-        $.ajax({
-		    url: "https://reqres.in/api/users",
-		     type: "POST",
-                     data: "id=" +id,
-                    success: function(response)
-                 {
-			console.log(response);
-                    name=response.name,
-                    job=response.job;
+                var id = $(this).parents("tr")}
+			$.ajax({
+				    url: "https://reqres.in/api/users",
+				     type: "POST",
+				     data: "id=" +id,
+				    success: function(response)
+				 {
+					console.log(response);
+				    name=response.name,
+				    job=response.job;
 
 
-                      console.log(name)
-                      console.log(job)
-			
-
-
-
-                }
-            });
-        });
-
-
-});
+				      console.log(name)
+				      console.log(job)
+				 }
+			     });
+              });
+         });
 
 
          // View the selected text
-        $(".edit-row").click(function(){
-            $("table tbody").find('input[name="record"]').each(function(){
-            	if($(this).is(":checked")){
-                    $(this).parents("tr").alert();
-                }
-            });
-        });
+        //$(".view-row").click(function(){
+          //  $("table tbody").find('input[name="record"]').each(function(){
+            //	if($(this).is(":checked")){
+              //      $(this).parents("tr").alert();
+                //}
+            //});
+        //});
+     */
  });
  
   
@@ -147,7 +136,7 @@ job=""
         <thead>
             <tr>
                 <th>Select</th>
-<th>ID</th>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Job</th>
             </tr>
@@ -155,7 +144,7 @@ job=""
         <tbody>
             <tr>
                 <td><input type="checkbox" name="record"></td>
-<td>101</td>
+                <td>101</td>
                 <td>Peter Parker</td>
                 <td>peterparker@mail.com</td>
             </tr>
